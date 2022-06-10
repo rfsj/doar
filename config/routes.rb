@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :donations
-  resources :institutions
+  
+  resources :institutions do
+    resources :donations
+  end
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

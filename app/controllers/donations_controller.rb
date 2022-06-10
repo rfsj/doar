@@ -21,17 +21,9 @@ class DonationsController < ApplicationController
 
   # POST /donations or /donations.json
   def create
-    @donation = Donation.new(donation_params)
-
-    respond_to do |format|
-      if @donation.save
-        format.html { redirect_to donation_url(@donation), notice: "Donation was successfully created." }
-        format.json { render :show, status: :created, location: @donation }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @donation.errors, status: :unprocessable_entity }
-      end
-    end
+    @institution = Institution.find(params[:institution_id])
+    @donation = @institution.donation.create(donation_params)
+    redirect_to institution_path(@institution)
   end
 
   # PATCH/PUT /donations/1 or /donations/1.json
