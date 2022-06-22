@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  quero_doar: "Quero Doar"
+  want_donate: "I want to donate"
+  need: "What we need"
+  name: "Name: "
+  cnpj: "CNPJ: "
+  address: "Address: "
+  phone: "Phone: "
+  email: "Email: "
+  about_us: "About Us"
+  need_form: "Need Form"
+

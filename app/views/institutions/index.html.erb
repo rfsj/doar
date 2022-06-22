@@ -1,45 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Institutions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Cnpj</th>
-      <th>Cep</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @institutions.each do |institution| %>
-      <tr>
-        <td><%= institution.name %></td>
-        <td><%= institution.cnpj %></td>
-        <td><%= institution.cep %></td>
-        <td><%= institution.address %></td>
-        <td><%= institution.phone %></td>
-        <td><%= institution.email %></td>
-        <td><%= institution.latitude %></td>
-        <td><%= institution.longitude %></td>
-        <td><%= link_to 'Show', institution %></td>
-        <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
-        <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<section>
+<% @institutions.each do |institution| %>
+  <div class="col-md-3 text-title">
+    <h5 class="text-title"><%= institution.name %></h5>
+    <%= link_to institution do %>
+      <% image_tag("rails.png") %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
 
-<br>
-
-<%= link_to 'New Institution', new_institution_path %>
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
+</section>

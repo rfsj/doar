@@ -1,13 +1,12 @@
 class InstitutionsController < ApplicationController
   before_action :set_institution, only: %i[ show edit update destroy ]
+  require 'csv'
 
   # GET /institutions or /institutions.json
   def index
     @institutions = Institution.all
     
-    #@point =  HTTParty.get("http://dados.recife.pe.gov.br/dataset/eeee4ac5-d0e0-490b-aac0-490a6de74e07/resource/81f406de-8468-4bb9-b038-0956d6684acd/download/shopping.csv")
-    #@point_JSON = JSON.parse(dados_brutos.body)
-    #@point_institution = @point_JSON["result"]["records"] 
+    
     
     #@hash = Gmaps4rails.build_markers(@institutions) do |institution, marker|
     #  marker.lat institution.latitude

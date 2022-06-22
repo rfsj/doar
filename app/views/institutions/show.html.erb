@@ -1,87 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @institution.name %>
-</p>
-
-<p>
-  <strong>Cnpj:</strong>
-  <%= @institution.cnpj %>
-</p>
-
-<p>
-  <strong>Cep:</strong>
-  <%= @institution.cep %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @institution.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @institution.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @institution.email %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @institution.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @institution.longitude %>
-</p>
-
 <%= link_to 'Edit', edit_institution_path(@institution) %> |
 <%= link_to 'Back', institutions_path %>
+<div>
+<br>
+<h2><%= t ('about_us') %></h2>
+<ul class="list-group">
+  <li class="list-group-item"><%= t ('name') %><%= @institution.name %></li>
+  <li class="list-group-item"><%= t ('cnpj') %><%= @institution.cnpj %></li>
+  <li class="list-group-item"><%= t ('address') %><%= @institution.address %></li>
+  <li class="list-group-item"><%= t ('phone') %><%= @institution.phone %></li>
+  <li class="list-group-item"><%= t ('email') %><%= @institution.email %></li>
+</ul>
 
-<h2>need</h2>
+
+</div>
+<h2><%= t ('need') %></h2>
 <% @institution.donation.each do |donation| %>
-  <p>
-    <strong>name:</strong>
-    <%= donation.name %>
-  </p>
-
-  <p>
-    <strong>description:</strong>
-    <%= donation.description %>
-  </p>
-
-  <p>
-    <strong>need:</strong>
-    <%= donation.need %>
-  </p>
+  <ul class="list-group">
+    <li class="list-group-item"><%= donation.need %></li>
+  </ul>
 <% end %>
-
-<h2>need form</h2>
+<h2><%= t ('need_form') %></h2>
 <%= form_with model: [ @institution, @institution.donation.build ] do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field col-auto">
+    <%= form.label :need, class: 'col-form-label '  %>
+    <%= form.text_field :need, class: 'form-control'  %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :need %>
-    <%= form.text_field :need %>
-  </div>
-
-  <div class="field">
-    <%= form.label :institution_id %>
-    <%= form.text_field :institution_id %>
-  </div>
+  
   <p>
     <%= form.submit %>
   </p>

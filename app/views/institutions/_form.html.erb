@@ -1,4 +1,4 @@
-<%= form_with(model: institution) do |form| %>
+<%= form_with(model: institution, data: {controller:"institution", action:"google-maps-callback@window->institution.initMap"}) do |form| %>
   <% if institution.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, data: {target:"places.field"} %>
   </div>
 
   <div class="field">
@@ -55,3 +55,6 @@
     <%= form.submit %>
   </div>
 <% end %>
+ <div>
+  <div data-target="institution.map"></div>
+ </div>
